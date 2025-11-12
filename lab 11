@@ -1,0 +1,87 @@
+import math
+
+#
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def info(self):
+        print(f"Brand: {self.brand}, Model: {self.model}")
+
+
+class Car(Vehicle):
+    def __init__(self, brand, model, year):
+        super().__init__(brand, model)
+        self.year = year
+
+    def info(self):
+        print(f"Brand: {self.brand}, Model: {self.model}, Year: {self.year}")
+
+
+#
+class Bird:
+    def sound(self):
+        print("This bird makes a sound.")
+
+class Parrot(Bird):
+    def sound(self):
+        print("The parrot says: Hello!")
+
+
+#
+class Shape:
+    def area(self):
+        pass
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return 0.5 * self.base * self.height
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+
+# 4️⃣
+class Artist:
+    def role(self):
+        print("Creating art and designs.")
+
+class Musician:
+    def role(self):
+        print("Composing and performing music.")
+
+class MultiTalent(Artist, Musician):
+    def role(self):
+        super().role()
+        print("Also participates in cultural events.")
+
+
+# 🔹
+print("=== Vehicle Example ===")
+c = Car("Toyota", "Camry", 2020)
+c.info()
+
+print("\n=== Bird Example ===")
+b = Bird()
+p = Parrot()
+b.sound()
+p.sound()
+
+print("\n=== Shapes Example ===")
+shapes = [Triangle(5, 10), Square(4)]
+for s in shapes:
+    print("Area:", s.area())
+
+print("\n=== Multiple Inheritance Example ===")
+person = MultiTalent()
+person.role()
+
